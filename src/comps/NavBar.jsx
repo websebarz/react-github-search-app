@@ -1,36 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
-
-export default function NavBar() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { name } = e.target;
-    // console.log(name.value);
-
-    setUsername(name.value);
-  };
-
-  const [username, setUsername] = useState("");
-  //   console.log(username);
-
-  useEffect(() => {
-    const getUser = async () => {
-      const api = `https://api.github.com/users/${username}`;
-      const res = await fetch(api);
-      const json = await res.json();
-
-      console.log(json);
-    };
-
-    (async function () {
-      try {
-        console.log(await getUser());
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  });
+export default function NavBar({ handleSubmit }) {
   return (
     <div className="relative p-6">
       <form action="/" onSubmit={handleSubmit}>
