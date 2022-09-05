@@ -1,7 +1,7 @@
-import Counter from "./comps/Counter";
+import Header from "./comps/Header";
 
 function App() {
-  return <h1 className="text-red-600">dev_finder</h1>;
+  return <Header />;
 }
 
 export default App;
