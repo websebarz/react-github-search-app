@@ -1,7 +1,39 @@
+import { useState } from "react";
+import { useEffect } from "react";
+
 export default function NavBar() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { name } = e.target;
+    // console.log(name.value);
+
+    setUsername(name.value);
+  };
+
+  const [username, setUsername] = useState("");
+  //   console.log(username);
+
+  useEffect(() => {
+    const getUser = async () => {
+      const api = `https://api.github.com/users/${username}`;
+      const res = await fetch(api);
+      const json = await res.json();
+
+      console.log(json);
+    };
+
+    (async function () {
+      try {
+        console.log(await getUser());
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  });
   return (
     <div className="relative p-6">
-      <form action="/">
+      <form action="/" onSubmit={handleSubmit}>
         <span className="absolute top-10 left-12">
           <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -15,7 +47,7 @@ export default function NavBar() {
           id="header-search"
           placeholder="Search GitHub..."
           className="w-full h-[60px] rounded-lg shadow-lg text-[13px] text-center"
-          name="s"
+          name="name"
         />
 
         <button

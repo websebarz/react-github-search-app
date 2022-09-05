@@ -1,9 +1,9 @@
 export default function Header() {
   return (
     <div className="flex p-6 justify-between items-center">
-      <h2 className="text-mono font-bold text-3xl text-[#222731]">devfinder</h2>
+      <h2 className="font-bold text-3xl text-[#222731]">devfinder</h2>
       <div className="flex w-[89px] h-[20px] text-center">
-        <p className="text-mono text-[#4B6A9B] tracking-widest">DARK</p>
+        <p className="text-[#4B6A9B] tracking-widest">DARK</p>
         <span className="ml-4">
           <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
