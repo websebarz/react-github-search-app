@@ -4,7 +4,8 @@ import NavBar from "./comps/NavBar";
 import User from "./comps/User";
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(null);
+  const [currUser, setCurrUser] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,28 +17,38 @@ function App() {
   };
 
   useEffect(() => {
-    const getUser = async () => {
-      const api = `https://api.github.com/users/${username}`;
-      const res = await fetch(api);
-      const data = await res.json();
-
-      console.log(data);
+    const getUser = () => {
+      fetch(`https://api.github.com/users/${username}`)
+        .then((res) => res.json())
+        .then((user) => {
+          setCurrUser(user);
+        });
     };
 
-    (async function () {
-      try {
-        console.log(await getUser());
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  });
+    getUser();
+    // const getUser = async () => {
+    //   const api = `https://api.github.com/users/${username}`;
+    //   const res = await fetch(api);
+    //   const data = await res.json();
+
+    //   return data;
+    // };
+
+    // (async function () {
+    //   try {
+    //     console.log(await getUser());
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // })();
+  }, [username]);
+  // console.log(currUser);
 
   return (
     <div className="bg-[#F6F8FF]">
       <Header />
       <NavBar handleSubmit={handleSubmit} />
-      <User />
+      <User currUser={currUser} />
     </div>
   );
 }
