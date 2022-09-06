@@ -45,7 +45,7 @@ function App() {
   console.log(currUser);
 
   return (
-    <div className="bg-[#F6F8FF]">
+    <div className="bg-[#F6F8FF] h-screen">
       <Header />
       <NavBar handleSubmit={handleSubmit} />
       <User currUser={currUser} />
