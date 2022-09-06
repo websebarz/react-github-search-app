@@ -6,6 +6,7 @@ import User from "./comps/User";
 function App() {
   const [username, setUsername] = useState("octocat");
   const [currUser, setCurrUser] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,10 @@ function App() {
     setUsername(name.value);
   };
 
+  const toggleMode = () => {
+    setDarkMode((prevState) => !prevState);
+  };
+  // console.log(darkMode);
   useEffect(() => {
     const getUser = () => {
       fetch(`https://api.github.com/users/${username}`)
@@ -42,14 +47,24 @@ function App() {
     //   }
     // })();
   }, [username]);
-  console.log(currUser);
+  // console.log(currUser);
 
   return (
-    <div className="bg-[#F6F8FF] h-screen">
-      <Header />
-      <NavBar handleSubmit={handleSubmit} />
-      <User currUser={currUser} />
-    </div>
+    <>
+      {!darkMode ? (
+        <div className="bg-[#F6F8FF] h-screen">
+          <Header toggleMode={toggleMode} darkMode={darkMode} />
+          <NavBar handleSubmit={handleSubmit} darkMode={darkMode} />
+          <User currUser={currUser} darkMode={darkMode} />
+        </div>
+      ) : (
+        <div className="bg-[#141D2F] h-screen">
+          <Header toggleMode={toggleMode} darkMode={darkMode} />
+          <NavBar handleSubmit={handleSubmit} darkMode={darkMode} />
+          <User currUser={currUser} darkMode={darkMode} />
+        </div>
+      )}
+    </>
   );
 }
 
