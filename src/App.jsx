@@ -4,7 +4,7 @@ import NavBar from "./comps/NavBar";
 import User from "./comps/User";
 
 function App() {
-  const [username, setUsername] = useState(null);
+  const [username, setUsername] = useState("octocat");
   const [currUser, setCurrUser] = useState([]);
 
   const handleSubmit = (e) => {
@@ -42,7 +42,7 @@ function App() {
     //   }
     // })();
   }, [username]);
-  // console.log(currUser);
+  console.log(currUser);
 
   return (
     <div className="bg-[#F6F8FF]">
