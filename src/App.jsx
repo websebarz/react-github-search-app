@@ -47,7 +47,7 @@ function App() {
     //   }
     // })();
   }, [username]);
-  // console.log(currUser);
+  console.log(currUser);
 
   return (
     <>

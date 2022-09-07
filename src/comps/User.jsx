@@ -2,19 +2,22 @@ export default function User({ currUser, darkMode }) {
   return (
     <>
       {!darkMode ? (
-        <div className="flex flex-col p-6 w-[90%] bg-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
-          <div className="flex">
-            <img className="w-[70px] rounded-full" src={currUser.avatar_url} />
-            <div className="ml-4">
+        <div className="flex flex-col p-6 w-[90%] sm:max-w-[80%] bg-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
+          <div className="flex sm:ml-2">
+            <img
+              className="w-[70px] rounded-full sm:w-[117px]"
+              src={currUser.avatar_url}
+            />
+            <div className="ml-4 sm:ml-6">
               <h1 className="font-bold">{currUser.name}</h1>
               <h3 className="text-[#0079FF]">@{currUser.login}</h3>
-              <p>Joined:{JSON.stringify(currUser.created_at).slice(1, 11)}</p>
+              <p>{currUser.created_at}</p>
             </div>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 p-2">
             <p>{currUser.bio}</p>
           </div>
-          <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#F6F8FF] text-center p-4 rounded-lg mr-auto ml-auto">
+          <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#F6F8FF] text-center p-4 rounded-lg mr-auto ml-auto sm:w-full">
             <div className="flex flex-col">
               <span className="text-xs">Repos</span>
               <span className="mt-2 font-bold">{currUser.public_repos}</span>
@@ -175,19 +178,22 @@ export default function User({ currUser, darkMode }) {
           </div>
         </div>
       ) : (
-        <div className="bg-[#1E2A47] flex flex-col p-6 w-[90%] text-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
-          <div className="flex">
-            <img className="w-[70px] rounded-full" src={currUser.avatar_url} />
-            <div className="ml-4">
+        <div className="bg-[#1E2A47] flex flex-col p-6 w-[90%] sm:max-w-[80%] text-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
+          <div className="flex sm:ml-2">
+            <img
+              className="w-[70px] rounded-full sm:w-[117px]"
+              src={currUser.avatar_url}
+            />
+            <div className="ml-4 sm:ml-6">
               <h1 className="font-bold">{currUser.name}</h1>
-              <h3>@{currUser.login}</h3>
-              <p>Joined:{JSON.stringify(currUser.created_at).slice(1, 11)}</p>
+              <h3 className="text-[#0079FF]">@{currUser.login}</h3>
+              <p>{currUser.created_at}</p>
             </div>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 p-2">
             <p>{currUser.bio}</p>
           </div>
-          <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#141D2F] text-center p-4 rounded-lg mr-auto ml-auto">
+          <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#141D2F] text-center p-4 rounded-lg mr-auto ml-auto sm:w-full">
             <div className="flex flex-col">
               <span className="text-xs">Repos</span>
               <span className="mt-2 font-bold">{currUser.public_repos}</span>

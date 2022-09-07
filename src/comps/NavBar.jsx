@@ -2,7 +2,7 @@ export default function NavBar({ handleSubmit, darkMode }) {
   return (
     <>
       {!darkMode ? (
-        <div className="relative w-full p-6">
+        <div className="relative sm:max-w-[573px] ml-auto mr-auto p-6">
           <form action="/" onSubmit={handleSubmit}>
             <span className="absolute top-10 left-12">
               <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@ export default function NavBar({ handleSubmit, darkMode }) {
           </form>
         </div>
       ) : (
-        <div className="relative p-6">
+        <div className="relative sm:max-w-[573px] ml-auto mr-auto p-6">
           <form action="/" onSubmit={handleSubmit}>
             <span className="absolute top-10 left-12">
               <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
