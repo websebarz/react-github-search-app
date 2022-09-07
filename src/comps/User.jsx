@@ -3,12 +3,12 @@ export default function User({ currUser, darkMode }) {
     <>
       {!darkMode ? (
         <div className="flex flex-col p-6 w-[90%] bg-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
-          <div className="flex justify-between">
+          <div className="flex">
             <img className="w-[70px] rounded-full" src={currUser.avatar_url} />
-            <div>
+            <div className="ml-4">
               <h1 className="font-bold">{currUser.name}</h1>
-              <h3>@{currUser.login}</h3>
-              <p>{currUser.created_at}</p>
+              <h3 className="text-[#0079FF]">@{currUser.login}</h3>
+              <p>Joined:{JSON.stringify(currUser.created_at).slice(1, 11)}</p>
             </div>
           </div>
           <div className="mt-4">
@@ -176,12 +176,12 @@ export default function User({ currUser, darkMode }) {
         </div>
       ) : (
         <div className="bg-[#1E2A47] flex flex-col p-6 w-[90%] text-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
-          <div className="flex justify-between">
+          <div className="flex">
             <img className="w-[70px] rounded-full" src={currUser.avatar_url} />
-            <div>
+            <div className="ml-4">
               <h1 className="font-bold">{currUser.name}</h1>
               <h3>@{currUser.login}</h3>
-              <p>{currUser.created_at}</p>
+              <p>Joined:{JSON.stringify(currUser.created_at).slice(1, 11)}</p>
             </div>
           </div>
           <div className="mt-4">
