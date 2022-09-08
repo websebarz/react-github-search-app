@@ -2,7 +2,7 @@ export default function User({ currUser, darkMode }) {
   return (
     <>
       {!darkMode ? (
-        <div className="flex flex-col p-6 w-[90%] sm:max-w-[80%] bg-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
+        <div className="flex flex-col p-6 w-[90%] sm:w-[90%] lg:w-[730px] bg-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
           <div className="flex sm:ml-2">
             <img
               className="w-[70px] rounded-full sm:w-[117px]"
@@ -178,7 +178,7 @@ export default function User({ currUser, darkMode }) {
           </div>
         </div>
       ) : (
-        <div className="bg-[#1E2A47] flex flex-col p-6 w-[90%] sm:max-w-[80%] text-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
+        <div className="bg-[#1E2A47] flex flex-col p-6 w-[90%] sm:w-[90%] lg:w-[730px] text-[#fff] mr-auto ml-auto rounded-lg shadow-lg">
           <div className="flex sm:ml-2">
             <img
               className="w-[70px] rounded-full sm:w-[117px]"

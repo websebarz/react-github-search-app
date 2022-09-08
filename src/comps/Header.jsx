@@ -2,7 +2,7 @@ export default function Header({ toggleMode, darkMode }) {
   return (
     <>
       {!darkMode ? (
-        <div className="flex p-6 justify-between items-center sm:max-w-[573px] ml-auto mr-auto">
+        <div className="flex p-6 justify-between items-center sm:w-[573px] ml-auto mr-auto lg:w-[730px]">
           <h2 className="font-bold text-3xl text-[#222731]">devfinder</h2>
           <div className="flex w-[89px] h-[20px] text-center">
             <p className="text-[#4B6A9B] tracking-widest">DARK</p>
@@ -18,7 +18,7 @@ export default function Header({ toggleMode, darkMode }) {
           </div>
         </div>
       ) : (
-        <div className="flex p-6 justify-between items-center sm:max-w-[573px] ml-auto mr-auto">
+        <div className="flex p-6 justify-between items-center sm:w-[573px] ml-auto mr-auto lg:w-[730px]">
           <h2 className="font-bold text-3xl text-[#fff]">devfinder</h2>
           <div className="flex w-[89px] h-[20px] text-center">
             <p className="text-[#4B6A9B] tracking-widest">LIGHT</p>

@@ -27,6 +27,9 @@ function App() {
         .then((res) => res.json())
         .then((user) => {
           setCurrUser(user);
+        })
+        .catch((err) => {
+          console.err(err);
         });
     };
 
