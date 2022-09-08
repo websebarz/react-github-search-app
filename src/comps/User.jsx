@@ -1,4 +1,23 @@
 export default function User({ currUser, darkMode }) {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const parsedDate = new Date(currUser.created_at);
+  const formattedDate = `Joined ${parsedDate.getDate()} ${
+    months[parsedDate.getMonth()]
+  } ${parsedDate.getFullYear()}`;
   return (
     <>
       {!darkMode ? (
@@ -7,15 +26,18 @@ export default function User({ currUser, darkMode }) {
             <img
               className="w-[70px] rounded-full sm:w-[117px]"
               src={currUser.avatar_url}
+              alt="pfp"
             />
-            <div className="ml-4 sm:ml-6">
-              <h1 className="font-bold">{currUser.name}</h1>
-              <h3 className="text-[#0079FF]">@{currUser.login}</h3>
-              <p>{currUser.created_at}</p>
+            <div className="ml-4 sm:ml-6 lg:h-fit lg:mt-4 lg:grid lg:grid-cols-2 lg:items-center">
+              <h1 className="font-bold lg:order-1 lg:text-xl">
+                {currUser.name}
+              </h1>
+              <h3 className="text-[#0079FF] lg:order-3">@{currUser.login}</h3>
+              <p className="lg:order-2 lg:ml-16">{formattedDate}</p>
             </div>
           </div>
           <div className="mt-4 p-2">
-            <p>{currUser.bio}</p>
+            <p>{currUser.bio ?? "This profile has no Bio"}</p>
           </div>
           <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#F6F8FF] text-center p-4 rounded-lg mr-auto ml-auto sm:w-full">
             <div className="flex flex-col">
@@ -184,14 +206,16 @@ export default function User({ currUser, darkMode }) {
               className="w-[70px] rounded-full sm:w-[117px]"
               src={currUser.avatar_url}
             />
-            <div className="ml-4 sm:ml-6">
-              <h1 className="font-bold">{currUser.name}</h1>
-              <h3 className="text-[#0079FF]">@{currUser.login}</h3>
-              <p>{currUser.created_at}</p>
+            <div className="ml-4 sm:ml-6 lg:h-fit lg:mt-4 lg:grid lg:grid-cols-2 lg:items-center">
+              <h1 className="font-bold lg:order-1 lg:text-xl">
+                {currUser.name}
+              </h1>
+              <h3 className="text-[#0079FF] lg:order-3">@{currUser.login}</h3>
+              <p className="lg:order-2 lg:ml-16">{formattedDate}</p>
             </div>
           </div>
           <div className="mt-4 p-2">
-            <p>{currUser.bio}</p>
+            <p>{currUser.bio ?? "This profile has no Bio"}</p>
           </div>
           <div className="flex w-[279px] h-[85px] mt-6 justify-between bg-[#141D2F] text-center p-4 rounded-lg mr-auto ml-auto sm:w-full">
             <div className="flex flex-col">
